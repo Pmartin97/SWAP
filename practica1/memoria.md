@@ -22,12 +22,12 @@ Las dos máquinas virtuales están configuradas de la siguiente forma:
 |:------------ | ------------:|
 |192.168.10.10 | 192.168.10.11|
 
-![imagen](https://github.com/Pmartin97/SWAP/practica1/ip%20addr.png)
+![imagen](https://github.com/Pmartin97/SWAP/blob/master/practica1/ip%20addr.png)
 
 Priemro realizamos ssh desde swap1 a swap2:
 
-![imagen](https://github.com/Pmartin97/SWAP/practica1/ssh.png)
+![imagen](https://github.com/Pmartin97/SWAP/blob/master/practica1/ssh.png)
 
 Por último realizamos la prueba de curl desde swap2 a swap1:
 
-![imagen](https://github.com/Pmartin97/SWAP/practica1/curl.png)
+![imagen](https://github.com/Pmartin97/SWAP/blob/master/practica1/curl.png)
