@@ -33,7 +33,7 @@ Para terminar vamos a ver cómo se comporta el balanceador cambiando el peso de 
 ![imagen](https://github.com/Pmartin97/SWAP/blob/master/practica3/ab_nginx.png)
 
 
-##El balanceador haproxy
+## El balanceador haproxy
 
 ### Instalación haproxy
 
@@ -51,6 +51,7 @@ Vamos a comprobar que el balanceador funciona correctamente:
 
 ![imagen](https://github.com/Pmartin97/SWAP/blob/master/practica3/prueba_haproxy.PNG)
 
+Aquí podemos comprobar que la ip destino ha cambiado a 192.168.10.21 como se comentó al principio.
 
 ### Prueba final haproxy
 
@@ -75,6 +76,15 @@ Por último comprobaremos el funcionamiento de haproxy con apache benchmark, con
 
 
 
+Los resultados obtenidos indican que el balanceador haproxy es más eficiente que el balanceador nginx.
 
+Para la misma prueba, haproxy ha sido un 19,2% más rápido que nginx.
+Hay que tener en cuenta que la prueba no se ha realizado en las condiciones idóneas, por lo que
+este resultado podría variar, pero se ha ejecutado en el mismo contexto, por lo que suponemos
+que el resultado no debería variar en exceso(por ejemplo dando un mejor resultado nginx).
+
+También se puede mencionar que el nº de bytes enviados en haproxy es mayor que en nginx,
+esto puede suponer que en la prueba nginx ha tenido algún problema que haya ralentizado la prueba
+o que haproxy envíe ciertos metadatos extra para realizar el balanceo.
 
 
