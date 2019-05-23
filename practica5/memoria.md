@@ -8,6 +8,8 @@ que contiene un número entero que funciona de llave primaria y un texto descrip
 
 ![imagen](https://github.com/Pmartin97/SWAP/blob/master/practica5/bd_solo_swap1.PNG)
 
+Podemos ver que en la máquina 2 intentamos acceder a la base de datos y nos dice que no existe.
+
 ## Copia de una base de datos mediante mysqldump
 
 Para la copia de la base de datos mediante mysqldump generamos un archivo con extensión sql. Transferimos
@@ -24,9 +26,10 @@ como esclava.
 Nota: la ip de la máquina 1 era **192.168.10.10**.
 
 Primero cambiamos los archivos de configuración:
+<br/>
 *SWAP1*
 ![imagen](https://github.com/Pmartin97/SWAP/blob/master/practica5/conf1_ms.PNG)
-
+<br/>
 *SWAP2*
 ![imagen](https://github.com/Pmartin97/SWAP/blob/master/practica5/conf2_ms.PNG)
 
@@ -37,12 +40,12 @@ la base de datos:
 
 Una vez tenemos el usuario creado, pasamos a la máquina 2 y le indicamos los datos de la máquina 1:
 
-** mysql> change master to master_host='192.168.10.10',
-          master_user='esclavo',
-          master_password='esclavo',
-          master_log_file='bin.000001',
-          master_log_pos=980,
-          master_port=3306;**
+**mysql> change master to master_host='192.168.10.10',<br/>
+          master_user='esclavo',<br/>
+          master_password='esclavo',<br/>
+          master_log_file='bin.000001',<br/>
+          master_log_pos=980,<br/>
+          master_port=3306;** <br/>
 Por último ejecutamos "start slave;".
 En este momento se producieron dos errores:
   1- Las tablas en la máquina 1 seguían con el bloqueo activado.
@@ -52,10 +55,12 @@ Una vez hecho lo anterior pasamos a comprobar la configuración del esclavo:
 
 ![imagen](https://github.com/Pmartin97/SWAP/blob/master/practica5/slave_satus1.PNG)
 ![imagen](https://github.com/Pmartin97/SWAP/blob/master/practica5/slave_satus2.PNG)
-![imagen](https://github.com/Pmartin97/SWAP/blob/master/practica5/slave_satus3.PNG)
-![imagen](https://github.com/Pmartin97/SWAP/blob/master/practica5/slave_satus4.PNG)
+![imagen](https://github.com/Pmartin97/SWAP/blob/master/practica5/slave_status3.PNG)
+![imagen](https://github.com/Pmartin97/SWAP/blob/master/practica5/slave_status4.PNG)
 
 Para finalizar vamos a probar que nuestra configuración funciona:
 
 ![imagen](https://github.com/Pmartin97/SWAP/blob/master/practica5/replicacion_final1.PNG)
+Las dos máquinas parten de la misma base de datos, por el traspaso de la información por mysqldump.
 ![imagen](https://github.com/Pmartin97/SWAP/blob/master/practica5/replicacion_final2.PNG)
+Insertamos un nuevo valor en la máquina 1 y podemos ver que se ha transferido también a la máquina 2.
